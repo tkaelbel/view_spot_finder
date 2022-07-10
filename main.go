@@ -9,7 +9,6 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/aws/aws-lambda-go/lambda"
 	"golang.org/x/exp/slices"
 )
 
@@ -53,8 +52,10 @@ func init() {
 }
 
 func main() {
-	// do()
-	lambda.Start(HandleRequest)
+	do(os.Args[1:])
+
+	// aws lambda
+	// lambda.Start(HandleRequest)
 }
 
 func HandleRequest(ctx context.Context, args []string) []Value {
@@ -62,7 +63,6 @@ func HandleRequest(ctx context.Context, args []string) []Value {
 }
 
 func do(args []string) []Value {
-	// args := os.Args[1:]
 
 	if len(args) < 2 {
 		ErrorLogger.Println("Not enough parameters")

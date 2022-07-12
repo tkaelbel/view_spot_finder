@@ -57,7 +57,7 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./bin/view_spot_finder_win.exe
           asset_name: view_spot_finder_local_win.zip
-          asset_content_type: application/zip
+
           
     - name: Upload Release Asset
       id: upload-linux-release-asset 
@@ -68,7 +68,7 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./bin/view_spot_finder_lin
           asset_name: view_spot_finder_local_lin.zip
-          asset_content_type: application/zip
+
           
     - name: Upload Release Asset
       id: upload-mac-release-asset 
@@ -79,4 +79,3 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./bin/view_spot_finder_mac
           asset_name: view_spot_finder_local_mac.zip
-          asset_content_type: application/zip

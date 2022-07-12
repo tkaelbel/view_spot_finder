@@ -1,6 +1,6 @@
 # view_spot_finder
  
-This repository provides two solutions (local executable and aws serverless function via sam) for the view spot finder coding challenge. 
+This repository provides two solutions (local executable and aws serverless function via sam) for the view spot finder coding challenge see the `Assignment[1][1][1][1][2].pdf`. 
 
 ![Assignment.PDF](./Assignment[1][1][1][1][2].pdf)
 

@@ -22,13 +22,13 @@ jobs:
       run: cd view_spot_finder_local && go mod verify
       
     - name: Build-windows
-      run: cd view_spot_finder_local && env GOOS=windows GOARCH=amd64 go build -v ./...
+      run: cd view_spot_finder_local && env GOOS=windows GOARCH=amd64 go build -o ../bin/view_spot_finder_win
       
     - name: Build-linux
-      run: cd view_spot_finder_local && env GOOS=linux GOARCH=amd64 go build -v ./...
+      run: cd view_spot_finder_local && env GOOS=linux GOARCH=amd64 go build -o ../bin/view_spot_finder_lin
     
     - name: Build-mac
-      run: cd view_spot_finder_local && env GOOS=darwin GOARCH=amd64 go build -v ./...
+      run: cd view_spot_finder_local && env GOOS=darwin GOARCH=amd64 go build -o ../bin/view_spot_finder_mac
       
     - name: Create Release
       id: create_release
@@ -48,7 +48,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./view_spot_finder_local/view_spot_finder_local.exe
+          asset_path: ./bin/view_spot_finder_win.exe
           asset_name: view_spot_finder_local_win.zip
           asset_content_type: application/zip
           
@@ -59,7 +59,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./view_spot_finder_local/view_spot_finder_local
+          asset_path: ./bin/view_spot_finder_lin
           asset_name: view_spot_finder_local_lin.zip
           asset_content_type: application/zip
           
@@ -70,6 +70,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./view_spot_finder_local/view_spot_finder_local
-          asset_name: view_spot_finder_local_lin.zip
+          asset_path: ./bin/view_spot_finder_mac
+          asset_name: view_spot_finder_local_mac.zip
           asset_content_type: application/zip

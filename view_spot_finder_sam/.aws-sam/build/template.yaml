@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'view_spot_finder
+
+  Sample SAM Template for view_spot_finder
+
+  '
+Globals:
+  Function:
+    Timeout: 20
+    MemorySize: 2000
+Resources:
+  ViewSpotFinder:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ViewSpotFinder
+      Handler: view_spot_finder
+      Runtime: go1.x
+      Architectures:
+      - x86_64
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /find-spots
+            Method: POST
+    Metadata:
+      SamResourceId: ViewSpotFinder
+Outputs:
+  ViewSpotFinderAPI:
+    Description: API Gateway endpoint URL for Prod environment for First Function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/find-spots/
+  ViewSpotFinderFunction:
+    Description: First Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - ViewSpotFinderFunction
+      - Arn
+  ViewSpotFinderFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - ViewSpotFinderFunctionRole
+      - Arn

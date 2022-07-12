@@ -33,9 +33,8 @@ jobs:
     - name: Show folder
       run: |
         pwd
-        cd ~
+        cd {{ $GITHUB_WORKSPACE }}
         pwd
-        cd ./bin/
         ls -l
       
 #     - name: Create Release

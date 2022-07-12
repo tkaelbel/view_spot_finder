@@ -2,6 +2,8 @@
  
 This repository provides two solutions (local executable and aws serverless function via sam) for the view spot finder coding challenge. 
 
+![Assignment.PDF](./Assignment[1][1][1][1][2].pdf)
+
 ## view_spot_finder_local
 
 Here we have the local implementation of the coding challenge. To run it locally install go https://go.dev/learn/.
@@ -14,10 +16,10 @@ go run .\main.go ..\mesh[1][1][1][1].json 20
 * The first parameter needs to point to json file (like in the root folder of the project \mesh[1][1][1][1].json...)
 * The second parameter specifies how many view spots should be output
 
-There are also executables provided under the tag v1.0 on the release page in github. Download the executable for your specific system.
+There are also executables provided under `Release v1.0` on the release page in github. Download the executable for your specific system.
 Here's an example for windows:
 ```bash
-
+./view_spot_finder_local_win.exe C:\Development\git_repository\view_spot_finder\mesh_x_sin_cos_20000[1][1][1][1].json 20
 ```
 
 ## view_spot_finder_sam
